@@ -70,7 +70,9 @@ const fetchPage = (url, strategy) => {
       response.getContentText()
     );
     if (!error) return parseResponse(metrics, audits, strategy);
-  } catch (f) {}
+  } catch (f) {
+    // do nothing
+  }
   return null;
 };
 
@@ -88,7 +90,7 @@ const writeDataToSheet = (name, data) => {
 
 const measureCoreVitals = () => {
   const urls = getUrls();
-  for (let u = 0; u < urls.length; u++) {
+  for (let u = 0; u < urls.length; u += 1) {
     const { name, url } = urls[u];
     const data = { ...fetchPage(url, 'desktop'), ...fetchPage(url, 'mobile') };
     if (data !== null) {

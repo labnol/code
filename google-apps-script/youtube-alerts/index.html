@@ -1,0 +1,47 @@
+<div
+    style="color:black;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';line-height:18px">
+    <div style="margin:0 auto;max-width:600px;padding:20px 0">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tbody>
+                <? videos.forEach(function(v) { ?>
+                <tr>
+                    <td style="border-top-color:#f0efef;border-top-style:solid;border-top-width:1px;padding:20px 0">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3" width="120" style="vertical-align:top" valign="top">
+                                        <a href="https://youtu.be/<?= v.videoId; ?>"
+                                            style="color:#da552f!important;text-decoration:none">
+                                            <img height="75" src="https://i.ytimg.com/vi/<?= v.videoId; ?>/default.jpg">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="https://youtu.be/<?= v.videoId; ?>"
+                                            style="color:#666!important;font-size:15px;text-decoration:none">
+                                            <?!= v.title; ?>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="color:#777;padding-bottom:4px;padding-top:4px">
+                                        By <a href="https://youtube.com/channel/<?= v.channelId; ?>">
+                                            <?!= v.channelTitle; ?>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <? }); ?>
+                <tr>
+                    <td
+                        style="border-top-color:#eee;border-top-style:solid;border-top-width:1px;color:#bbbbbb;font-size:12px;padding:20px 0">
+                        This notification was sent by <a
+                            href="https://www.labnol.org/youtube-email-alerts-201219">YouTube Email Alerts</a>.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
