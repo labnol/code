@@ -78,7 +78,7 @@ const fetchPage = (url, strategy) => {
 
 const writeDataToSheet = (name, data) => {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheetByName(name) || ss.insertSheet(name, 1, { template: ss.getSheetByName('template') });
+  const sheet = ss.getSheetByName(name) || ss.insertSheet(name, 1, { template: ss.getSheetByName('template') }).showSheet();
   const vitals = sheet
     .getRange(2, 1, sheet.getLastRow() - 1, 1)
     .getValues()
