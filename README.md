@@ -4,7 +4,7 @@ Google Apps Script is a scripting language based on JavaScript that lets you do 
 
 ## About the developer
 
-These [Google Apps Script](https://www.labnol.org/topic/google-apps-script) code snippets and [Google Workspace add-ons] are coded by [Amit Agarwal](https://www.labnol.org/about) for the [Digital Inspiration](https://digitalinspiration.com/).
+These [Google Apps Script](https://www.labnol.org/topic/google-apps-script) code snippets and [Google Workspace add-ons] are coded by [Amit Agarwal](https://www.labnol.org/about) for [Digital Inspiration](https://digitalinspiration.com/).
 
 ## Google Apps Script Snippets
 
@@ -20,6 +20,7 @@ These [Google Apps Script](https://www.labnol.org/topic/google-apps-script) code
 | [YouTube Alerts](./google-apps-script/youtube-alerts/)           | Monitor YouTube videos with Google Sheets  |
 | [YouTube Views](./google-apps-script/youtube-views/)             | Get the views of any YouTube video         |
 | [Zoom Scheduler](./google-apps-script/zoom-meetings/)            | Schedule Zoom meetings with Google Sheets  |
+| [Rename Files](./google-apps-script/rename-files/)               | Rename files in Google Drive with AI       |
 
 ## Google Workspace Add-ons
 
