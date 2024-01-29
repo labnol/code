@@ -11,9 +11,9 @@
  */
 
 const sendRichEmail = () => {
-  const cellAddress = "A1";
-  const sheetName = "Mail Merge";
-  const recipient = "amit@labnol.org";
+  const cellAddress = 'A1';
+  const sheetName = 'Mail Merge';
+  const recipient = 'amit@labnol.org';
 
   const richTextValue = SpreadsheetApp.getActiveSpreadsheet()
     .getSheetByName(sheetName)
@@ -35,22 +35,22 @@ const sendRichEmail = () => {
 
     const styles = {
       color: style.getForegroundColor(),
-      "font-family": style.getFontFamily(),
-      "font-size": `${style.getFontSize()}pt`,
-      "font-weight": style.isBold() ? "bold" : "",
-      "font-style": style.isItalic() ? "italic" : "",
-      "text-decoration": style.isUnderline() ? "underline" : "",
+      'font-family': style.getFontFamily(),
+      'font-size': `${style.getFontSize()}pt`,
+      'font-weight': style.isBold() ? 'bold' : '',
+      'font-style': style.isItalic() ? 'italic' : '',
+      'text-decoration': style.isUnderline() ? 'underline' : '',
     };
 
     // Gets whether or not the cell has strikethrough.
     if (style.isStrikethrough()) {
-      styles["text-decoration"] = `${styles["text-decoration"]} line-through`;
+      styles['text-decoration'] = `${styles['text-decoration']} line-through`;
     }
 
     const css = Object.keys(styles)
       .filter((attr) => styles[attr])
-      .map((attr) => [attr, styles[attr]].join(":"))
-      .join(";");
+      .map((attr) => [attr, styles[attr]].join(':'))
+      .join(';');
 
     const styledText = `<span style='${css}'>${richText}</span>`;
     return url ? `<a href='${url}'>${styledText}</a>` : styledText;
@@ -60,7 +60,7 @@ const sendRichEmail = () => {
   wherein each run is the longest possible
   substring having a consistent text style. */
   const runs = richTextValue.getRuns();
-  const htmlBody = runs.map((run) => getRunAsHtml(run)).join("");
+  const htmlBody = runs.map((run) => getRunAsHtml(run)).join('');
 
-  MailApp.sendEmail(recipient, "Rich HTML Email", "", { htmlBody });
+  MailApp.sendEmail(recipient, 'Rich HTML Email', '', { htmlBody });
 };

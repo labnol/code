@@ -41,7 +41,7 @@ const updateYouTubeVideo = (e = null) => {
 
     // If the video title has not changed, skip this step
     if (oldTitle !== newTitle) {
-      YouTube.Videos.update({ id: id, snippet: { title: newTitle, categoryId } }, 'snippet');
+      YouTube.Videos.update({ id, snippet: { title: newTitle, categoryId } }, 'snippet');
     }
   }
 };
