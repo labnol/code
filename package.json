@@ -1,16 +1,16 @@
 {
   "name": "code",
   "devDependencies": {
-    "@babel/preset-env": "^7.23.9",
-    "@babel/eslint-parser": "^7.23.9",
-    "@types/google-apps-script": "^1.0.79",
-    "eslint": "^8.56.0",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/eslint-parser": "^7.24.7",
+    "@types/google-apps-script": "^1.0.83",
+    "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-googleappsscript": "^1.0.5",
-    "eslint-plugin-html": "^7.1.0",
+    "eslint-plugin-html": "^8.1.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3",
-    "prettier": "^3.2.4"
+    "prettier": "^3.3.1"
   }
 }

@@ -12,6 +12,7 @@ These [Google Apps Script](https://www.labnol.org/topic/google-apps-script) code
 | ---------------------------------------------------------------- | ------------------------------------------ |
 | [Core Web Vitals](./google-apps-script/core-vitals/)             | Measure Core Vitals inside Google Sheets   |
 | [Disposable Gmail](./google-apps-script/disposable-gmail/)       | Use Gmail as a temporary email address     |
+| [Gmail Spam Classifier](./google-apps-script/gmail-spam/)        | Detect false positives in Gmail spam       |
 | [Google Drive Lock](./google-apps-script/drive-lock/)            | Lock Google Drive files with Apps Script   |
 | [Factory Reset Gmail](./google-apps-script/factory-reset-gmail/) | Delete everything in your Gmail account    |
 | [Google Drive Monitor](./google-apps-script/google-drive-watch/) | Monitor deleted files in your Google Drive |
