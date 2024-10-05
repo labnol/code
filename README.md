@@ -10,6 +10,7 @@ These [Google Apps Script](https://www.labnol.org/topic/google-apps-script) code
 
 | Google Apps Script Project                                       | Description                                |
 | ---------------------------------------------------------------- | ------------------------------------------ |
+| [Zoho Payments](./google-apps-script/zoho-payments/)             | Accept Zoho Payments in India              |
 | [Core Web Vitals](./google-apps-script/core-vitals/)             | Measure Core Vitals inside Google Sheets   |
 | [Disposable Gmail](./google-apps-script/disposable-gmail/)       | Use Gmail as a temporary email address     |
 | [Gmail Spam Classifier](./google-apps-script/gmail-spam/)        | Detect false positives in Gmail spam       |

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Macaron Café - Zoho Payments Demo</title>
+	<script src="https://static.zohocdn.com/zpay/zpay-js/v1/zpayments.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<img src="https://i.ibb.co/p2WdCFW/tatiana-lapina-qpf2gl-K0b-AA-unsplash.jpg" alt="Macaron Café">
+		<h1>Macaron Café &mdash; ₹ 2.95 per box</h1>
+		<p>This is a demo store for testing Zoho Payments in India. You can pay with UPI, Netbanking or credit cards.</p>
+		<form id="zohoPaymentsForm">
+			<input id="customerName" type="text" placeholder="Customer's Name" required>
+			<input id="customerEmail" type="email" placeholder="Customer's Email" required>
+			<select id="orderQuantity" required>
+				<option value="" disabled selected>Select Quantity</option>
+				<option value="1">1 box</option>
+				<option value="2">2 boxes</option>
+				<option value="3">3 boxes</option>
+				<option value="4">4 boxes</option>
+				<option value="5">5 boxes</option>
+			</select>
+			<button id="submitButton" type="submit">Buy Now</button>
+		</form>
+	</div>
+
+	<script>
+		async function showPaymentWindow(data) {
+			if (data.error) {
+				window.alert(data.error);
+				return;
+			}
+			const config = {
+				account_id: data.account_id,
+				domain: 'IN',
+				otherOptions: { api_key: data.api_key },
+			};
+
+			let instance = new window.ZPayments(config);
+
+			try {
+				let options = {
+					currency_code: 'INR',
+					currency_symbol: '₹',
+					payments_session_id: data.session_id,
+					business: data.merchant_name,
+					description: document.getElementById("orderQuantity").value + " boxes of macarons!",
+					amount: data.order_amount,
+					address: {
+						name: document.getElementById("customerName").value,
+						email: document.getElementById("customerEmail").value,
+					},
+				};
+				const { message } = await instance.requestPaymentMethod(options);
+				window.alert(message);
+			} catch (err) {
+				if (err.code !== 'widget_closed') {
+					console.error('Payment error:', err);
+				}
+			} finally {
+				await instance.close();
+				const submitButton = document.getElementById('submitButton');
+				submitButton.disabled = false;
+				submitButton.textContent = "Buy Now";
+			}
+		}
+
+		document.getElementById('zohoPaymentsForm').addEventListener('submit', function (e) {
+			e.preventDefault();
+
+			const submitButton = document.getElementById('submitButton');
+			submitButton.disabled = true;
+			submitButton.textContent = 'Processing...';
+
+			const orderAmount = Math.round(2.95 * Number(document.getElementById("orderQuantity").value) * 100) / 100;
+			google.script.run.withSuccessHandler(showPaymentWindow).createZohoPaymentSession(orderAmount);
+		});
+	</script>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+			background-color: #f0f0f0;
+		}
+
+		.container {
+			text-align: center;
+			background-color: white;
+			padding: 2rem;
+			border-radius: 8px;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			max-width: 400px;
+			width: 100%;
+		}
+
+		h1 {
+			color: #333;
+			margin-bottom: 0.5rem;
+			font-size: 1.2rem;
+		}
+
+		p {
+			color: #666;
+			margin-bottom: 1.5rem;
+			font-size: .95rem;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+			margin-bottom: 1rem;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		input,
+		select {
+			padding: 0.5rem;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			font-size: 1rem;
+		}
+
+		button {
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			padding: 0.75rem;
+			cursor: pointer;
+			border-radius: 4px;
+			font-size: 1rem;
+			transition: background-color 0.3s;
+		}
+
+		button:hover:not(:disabled) {
+			background-color: #45a049;
+		}
+
+		button:disabled {
+			background-color: #cccccc;
+			cursor: not-allowed;
+		}
+	</style>
+
+</body>
+
+</html>
